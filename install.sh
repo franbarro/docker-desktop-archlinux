@@ -5,4 +5,8 @@ var=`curl $url | xmllint --html --xpath '//a/@href' -  2> /dev/null | grep 'zst'
 
 url_download=$(echo $var | sed 's/href="//g' - | sed 's/"//g' -)
 
-sudo pacman -U $url_download
+wget $url_download -O /tmp/docker-desktop.pkg.tar.zst
+
+sudo pacman -U /tmp/docker-desktop.pkg.tar.zst --noconfirm
+
+unlink /tmp/docker-desktop.pkg.tar.zst
