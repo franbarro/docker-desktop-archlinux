@@ -1,5 +1,5 @@
 #!/urs/bin/zsh
-url='https://docs.docker.com/desktop/install/archlinux/'
+url='https://docs.docker.com/desktop/release-notes/'
 
 var=`curl $url | xmllint --html --xpath '//a/@href' -  2> /dev/null | grep 'zst' | head -1 `
 
